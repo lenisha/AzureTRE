@@ -5,6 +5,7 @@ from json import JSONDecodeError
 from starlette import status
 from typing import Tuple
 from e2e_tests.helpers import get_auth_header, get_full_endpoint
+import asyncio
 
 LOGGER = logging.getLogger(__name__)
 TIMEOUT = Timeout(10, read=30)
@@ -17,9 +18,15 @@ async def get_workspace(client, workspace_id: str, headers) -> dict:
     if response.status_code == 200:
         return response.json()["workspace"]
     else:
-        LOGGER.error(f"Non 200 response in get_workspace: {response.status_code}")
-        LOGGER.error(f"Full response: {response}")
-        raise Exception("Non 200 response in get_workspace")
+        LOGGER.warning(f"Non 200 response in get_workspace: {response.status_code}. Will try again...")
+        await asyncio.sleep(30)
+        response = await client.get(full_endpoint, headers=headers, timeout=TIMEOUT)
+        if response.status_code == 200:
+            return response.json()["workspace"]
+
+    LOGGER.error(f"Non 200 response in get_workspace: {response.status_code}")
+    LOGGER.error(f"Full response: {response}")
+    raise Exception("Non 200 response in get_workspace")
 
 
 async def get_identifier_uri(client, workspace_id: str, auth_headers) -> str:

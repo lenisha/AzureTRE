@@ -77,13 +77,16 @@ class AzureADAuthorization(AccessService):
         try:
             user = self._get_user_from_token(decoded_token)
         except Exception as e:
+            logging.debug("Unable to get user from token", exc_info=True)
             logging.debug(e)
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=strings.ACCESS_UNABLE_TO_GET_ROLE_ASSIGNMENTS_FOR_USER, headers={"WWW-Authenticate": "Bearer"})
 
         try:
             if not any(role in self.require_one_of_roles for role in user.roles):
+                logging.debug(f'{strings.ACCESS_USER_DOES_NOT_HAVE_REQUIRED_ROLE}: {self.require_one_of_roles}', exc_info=True)
                 raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f'{strings.ACCESS_USER_DOES_NOT_HAVE_REQUIRED_ROLE}: {self.require_one_of_roles}', headers={"WWW-Authenticate": "Bearer"})
         except Exception as e:
+            logging.debug("Exception in role assessment.", exc_info=True)
             logging.debug(e)
             raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f'{strings.ACCESS_USER_DOES_NOT_HAVE_REQUIRED_ROLE}: {self.require_one_of_roles}', headers={"WWW-Authenticate": "Bearer"})
 
@@ -286,12 +289,14 @@ class AzureADAuthorization(AccessService):
         msgraph_token = self._get_msgraph_token()
         user_endpoint = f"https://graph.microsoft.com/v1.0/users/{user_id}/appRoleAssignments"
         graph_data = requests.get(user_endpoint, headers=self._get_auth_header(msgraph_token)).json()
+        logging.debug(graph_data)
         return graph_data
 
     def _get_role_assignment_graph_data_for_service_principal(self, principal_id: str) -> dict:
         msgraph_token = self._get_msgraph_token()
         user_endpoint = f"https://graph.microsoft.com/v1.0/servicePrincipals/{principal_id}/appRoleAssignments"
         graph_data = requests.get(user_endpoint, headers=self._get_auth_header(msgraph_token)).json()
+        logging.debug(graph_data)
         return graph_data
 
     def _get_identity_type(self, id: str) -> str:
@@ -303,6 +308,8 @@ class AzureADAuthorization(AccessService):
             headers=self._get_auth_header(msgraph_token),
             json=request_body
         ).json()
+
+        logging.debug(graph_data)
 
         if "value" not in graph_data or len(graph_data["value"]) != 1:
             logging.debug(graph_data)
