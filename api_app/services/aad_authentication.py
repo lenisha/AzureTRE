@@ -297,6 +297,9 @@ class AzureADAuthorization(AccessService):
         user_endpoint = f"https://graph.microsoft.com/v1.0/servicePrincipals/{principal_id}/appRoleAssignments"
         logging.debug(f"making request to: {user_endpoint}")
         graph_data = requests.get(user_endpoint, headers=self._get_auth_header(msgraph_token)).json()
+        if "@odata.nextLink" in graph_data:
+            next_graph_data = requests.get(graph_data["@odata.nextLink"], headers=self._get_auth_header(msgraph_token)).json()
+            graph_data.update(next_graph_data)
         logging.debug("Request done.")
         logging.debug(graph_data)
         return graph_data
@@ -349,12 +352,15 @@ class AzureADAuthorization(AccessService):
             logging.debug("before _get_role_assignment_graph_data_for_service_principal call")
             graph_data = self._get_role_assignment_graph_data_for_service_principal(user_id)
         else:
+            logging.debug("about to raise: AuthConfigValidationError")
             raise AuthConfigValidationError(f"{strings.ACCESS_UNHANDLED_ACCOUNT_TYPE} {identity_type}")
 
         if 'value' not in graph_data:
             logging.debug(graph_data)
+            logging.debug("about to raise: AuthConfigValidationError")
             raise AuthConfigValidationError(f"{strings.ACCESS_UNABLE_TO_GET_ROLE_ASSIGNMENTS_FOR_USER} {user_id}")
 
+        logging.debug("about to log: graph_data")
         logging.debug(graph_data)
 
         return [RoleAssignment(role_assignment['resourceId'], role_assignment['appRoleId']) for role_assignment in graph_data['value']]
