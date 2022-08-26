@@ -50,7 +50,7 @@
           },
           "vmSize": "[parameters('vm_size_sku')]",
           "remoteLoginPortPublicAccess": "Enabled",
-          "enableNodePublicIp": false,
+          "enableNodePublicIp": true,
           "subnet": {
             "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnet_name'), parameters('subnet_name'))]"
           }

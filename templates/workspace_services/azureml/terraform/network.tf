@@ -42,15 +42,30 @@ resource "azurerm_network_security_rule" "allow-aml-inbound" {
   access                      = "Allow"
   destination_port_ranges     = ["29877", "29876", "44224"]
   destination_address_prefix  = "VirtualNetwork"
-  source_address_prefix       = "VirtualNetwork"
+  source_address_prefix       = "BatchNodeManagement"
   direction                   = "Inbound"
-  name                        = "${local.short_service_id}-aml-inbound"
+  name                        = "${local.short_service_id}-amlbatch-inbound"
   network_security_group_name = data.azurerm_network_security_group.ws.name
   priority                    = tonumber(data.external.nsg_rule_priorities_inbound.result.nsg_rule_priority)
   protocol                    = "Tcp"
   resource_group_name         = data.azurerm_resource_group.ws.name
   source_port_range           = "*"
 }
+
+resource "azurerm_network_security_rule" "allow-amljupiter-inbound" {
+  access                      = "Allow"
+  destination_port_ranges     = ["44224"]
+  destination_address_prefix  = "VirtualNetwork"
+  source_address_prefix       = "AzureMachineLearning"
+  direction                   = "Inbound"
+  name                        = "${local.short_service_id}-amljupiter-inbound"
+  network_security_group_name = data.azurerm_network_security_group.ws.name
+  priority                    = tonumber(data.external.nsg_rule_priorities_inbound.result.nsg_rule_priority) + 1
+  protocol                    = "Tcp"
+  resource_group_name         = data.azurerm_resource_group.ws.name
+  source_port_range           = "*"
+}
+
 
 
 resource "azurerm_network_security_rule" "allow-Outbound_Storage_445" {
