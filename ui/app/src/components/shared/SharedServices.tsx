@@ -7,7 +7,7 @@ import { SharedService } from '../../models/sharedService';
 import { HttpMethod, useAuthApiCall } from '../../hooks/useAuthApiCall';
 import { ApiEndpoint } from '../../models/apiEndpoints';
 import { CreateUpdateResourceContext } from '../../contexts/CreateUpdateResourceContext';
-import { RoleName } from '../../models/roleNames';
+import { RoleName, WorkspaceRoleName } from '../../models/roleNames';
 import { SecuredByRole } from './SecuredByRole';
 
 interface SharedServiceProps{
@@ -55,7 +55,7 @@ export const SharedServices: React.FunctionComponent<SharedServiceProps> = (prop
             <h1>Shared Services</h1>
             {
               !props.readonly &&
-              <SecuredByRole allowedRoles={[RoleName.TREAdmin]} workspaceAuth={false} element={
+              <SecuredByRole allowedRoles={[RoleName.TREAdmin, WorkspaceRoleName.WorkspaceOwner]} workspaceAuth={false} element={
                 <PrimaryButton iconProps={{ iconName: 'Add' }} text="Create new" onClick={() => {
                   createFormCtx.openCreateForm({
                     resourceType: ResourceType.SharedService,

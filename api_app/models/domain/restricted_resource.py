@@ -1,4 +1,6 @@
+from multiprocessing import connection
 from typing import Optional
+"""from unicodedata import category"""
 from pydantic import Field
 from models.domain.resource import ResourceType
 from models.domain.azuretremodel import AzureTREModel
@@ -8,6 +10,8 @@ class RestrictedProperties(AzureTREModel):
     display_name: str = ""
     description: str = ""
     overview: str = ""
+    connection_uri: str = ""
+    category: str = ""
 
 
 class RestrictedResource(AzureTREModel):
