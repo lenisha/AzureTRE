@@ -86,6 +86,7 @@ outputs:
       - upgrade
 
 mixins:
+  - exec
   - terraform:
       clientVersion: 1.2.6
 
@@ -112,11 +113,26 @@ install:
         - name: azureml_workspace_name
         - name: azureml_acr_id
         - name: azureml_storage_account_id
-        - name: connection_uri
-        - name: internal_connection_uri
+        - name: connection_uri_enc
+        - name: internal_connection_uri_enc
         - name: workspace_services_subnet_address_prefix
         - name: storage_tag
-
+  - exec:
+      description: "Decode connection URLs"
+      command: ./decode_uri.sh
+      arguments:
+        - "{{ bundle.outputs.connection_uri_enc }}"
+      outputs:
+        - name: connection_uri
+          jsonPath: "$.connection_uri"
+  - exec:
+      description: "Decode internal connection URLs"
+      command: ./decode_uri.sh
+      arguments:
+        - "{{ bundle.outputs.internal_connection_uri_enc }}"
+      outputs:
+        - name: internal_connection_uri
+          jsonPath: "$.connection_uri"
 upgrade:
   - terraform:
       description: "Upgrade Azure ML Service"
@@ -140,10 +156,26 @@ upgrade:
         - name: azureml_workspace_name
         - name: azureml_acr_id
         - name: azureml_storage_account_id
-        - name: connection_uri
-        - name: internal_connection_uri
+        - name: connection_uri_enc
+        - name: internal_connection_uri_enc
         - name: workspace_services_subnet_address_prefix
         - name: storage_tag
+  - exec:
+      description: "Decode connection URLs"
+      command: ./decode_uri.sh
+      arguments:
+        - "{{ bundle.outputs.connection_uri_enc }}"
+      outputs:
+        - name: connection_uri
+          jsonPath: "$.connection_uri"
+  - exec:
+      description: "Decode internal connection URLs"
+      command: ./decode_uri.sh
+      arguments:
+        - "{{ bundle.outputs.internal_connection_uri_enc }}"
+      outputs:
+        - name: internal_connection_uri
+          jsonPath: "$.connection_uri"
 
 uninstall:
   - terraform:
