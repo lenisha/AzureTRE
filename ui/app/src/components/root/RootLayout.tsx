@@ -71,6 +71,12 @@ export const RootLayout: React.FunctionComponent = () => {
                   removeWorkspace={(w: Workspace) => removeWorkspace(w)} />
               } />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/shared-services/category/data" element={
+                <Routes>
+                  <Route path="/data" element={<SecuredByRole element={<SharedServices readonly={false}/>} allowedRoles={[RoleName.TREAdmin,WorkspaceRoleName.WorkspaceOwner]} errorString={"You must be a TRE Admin to access this area"}/>} />
+                  <Route path=":serviceCategory" element={<SecuredByRole element={<SharedServiceItem readonly={false}/>} allowedRoles={[RoleName.TREAdmin,WorkspaceRoleName.WorkspaceOwner]} errorString={"You must be a TRE Admin to access this area"}/>} />
+                </Routes>
+              } />
               <Route path="/shared-services/*" element={
                 <Routes>
                   <Route path="/" element={<SecuredByRole element={<SharedServices readonly={false}/>} allowedRoles={[RoleName.TREAdmin,WorkspaceRoleName.WorkspaceOwner]} errorString={"You must be a TRE Admin to access this area"}/>} />

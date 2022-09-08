@@ -16,6 +16,24 @@ export const LeftNav: React.FunctionComponent = () => {
           url: '/',
           key: '/',
           icon: 'WebAppBuilderFragment'
+        },
+        {
+          name: 'Data',
+          url: '/shared-services/category/data',
+          key: 'shared-services-category',
+          icon: 'Database'
+        },
+        {
+          name: 'Compute',
+          url: '/shared-services/category/compute',
+          key: 'shared-services-category',
+          icon: 'CloudAdd'
+        },
+        {
+          name: 'Training & Support',
+          url: '/shared-services/category/training',
+          key: 'shared-services-category',
+          icon: 'Help'
         }
       ],
     },
