@@ -16,6 +16,16 @@ class ResourceType(str, Enum):
     SharedService = strings.RESOURCE_TYPE_SHARED_SERVICE
 
 
+class SharedServiceCategory(str, Enum):
+    """
+    Type of Shared Service catgory
+    """
+    Infrastructure = strings.SS_CATEGORY_INFRASTRUCTURE
+    Data = strings.SS_CATEGORY_DATA
+    Compute = strings.SS_CATEGORY_COMPUTE
+    TrainingSupport = strings.SS_CATEGORY_TRAININGSUPPORT
+
+
 class ResourceHistoryItem(AzureTREModel):
     """
     Resource History Item - to preserve history of resource properties

@@ -29,6 +29,10 @@ class SharedServiceRepository(ResourceRepository):
         return f'SELECT * FROM c WHERE {IS_NOT_DELETED_CLAUSE} AND c.resourceType = "{ResourceType.SharedService}"'
 
     @staticmethod
+    def category_shared_services_query(service_category: str):
+        return f'SELECT * FROM c WHERE {IS_NOT_DELETED_CLAUSE} AND c.resourceType = "{ResourceType.SharedService}" AND c.service_category = "{service_category}"'
+
+    @staticmethod
     def operating_shared_service_with_template_name_query(template_name: str):
         return f'SELECT * FROM c WHERE {IS_OPERATING_SHARED_SERVICE} AND c.resourceType = "{ResourceType.SharedService}" AND c.templateName = "{template_name}"'
 
@@ -53,6 +57,13 @@ class SharedServiceRepository(ResourceRepository):
             raise ResourceIsNotDeployed
 
         return shared_service
+
+    def get_shared_services_by_category(self, shared_service_category: str) -> List[SharedService]:
+        """
+        returns list of  shared services with the same category
+        """
+        shared_services = self.query(self.category_shared_services_query(shared_service_category))
+        return parse_obj_as(List[SharedService], shared_services)
 
     def get_shared_service_spec_params(self):
         return self.get_resource_base_spec_params()

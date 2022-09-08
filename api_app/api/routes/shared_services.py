@@ -44,6 +44,12 @@ async def retrieve_shared_service_by_id(shared_service=Depends(get_shared_servic
         return RestrictedSharedServiceInResponse(sharedService=shared_service)
 
 
+@shared_services_router.get("/shared-services/category/{shared_service_category}", response_model=SharedServicesInList, name=strings.API_GET_SHARED_SERVICES_BY_CATEGORY, dependencies=[Depends(get_current_tre_user_or_tre_admin)])
+async def retrieve_shared_services_by_category(shared_service_category: str, shared_services_repo=Depends(get_repository(SharedServiceRepository))) -> SharedServicesInList:
+    shared_services = shared_services_repo.get_shared_services_by_category(shared_service_category)
+    return SharedServicesInList(sharedServices=shared_services)
+
+
 @shared_services_router.post("/shared-services", status_code=status.HTTP_202_ACCEPTED, response_model=OperationInResponse, name=strings.API_CREATE_SHARED_SERVICE, dependencies=[Depends(get_current_admin_user)])
 async def create_shared_service(response: Response, shared_service_input: SharedServiceInCreate, user=Depends(get_current_admin_user), shared_services_repo=Depends(get_repository(SharedServiceRepository)), resource_template_repo=Depends(get_repository(ResourceTemplateRepository)), operations_repo=Depends(get_repository(OperationRepository))) -> OperationInResponse:
     try:

@@ -54,6 +54,7 @@ API_CREATE_SHARED_SERVICE = "Create a shared service"
 API_UPDATE_SHARED_SERVICE = "Update an existing shared service"
 API_DELETE_SHARED_SERVICE = "Delete shared service"
 API_INVOKE_ACTION_ON_SHARED_SERVICE = "Invoke action on a shared service"
+API_GET_SHARED_SERVICES_BY_CATEGORY = "Get shared services by category"
 
 API_CREATE_USER_RESOURCE_TEMPLATES = "Register user resource template"
 API_GET_USER_RESOURCE_TEMPLATES = "Get user resource templates applicable to the workspace service template"
@@ -164,6 +165,13 @@ RESOURCE_TYPE_WORKSPACE = "workspace"
 RESOURCE_TYPE_WORKSPACE_SERVICE = "workspace-service"
 USER_RESOURCE = "user-resource"
 RESOURCE_TYPE_SHARED_SERVICE = "shared-service"
+
+
+# Shared Service Category
+SS_CATEGORY_COMPUTE = "Compute"
+SS_CATEGORY_INFRASTRUCTURE = "Infrastructure"
+SS_CATEGORY_DATA = "Data"
+SS_CATEGORY_TRAININGSUPPORT = "TrainingSupport"
 
 # Airlock Resource Type
 AIRLOCK_RESOURCE_TYPE_REQUEST = "airlock-request"
