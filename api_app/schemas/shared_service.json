@@ -33,11 +33,18 @@
       "description": "Connection URL of the shared service",
       "updateable": true
     },
-    "category": {
+    "service_category": {
       "type": "string",
       "title": "Shared Service category",
       "description": "Category of the shared service",
-      "updateable": false
+      "updateable": true,
+      "enum": [
+        "Data",
+        "Compute",
+        "Infrastructure",
+        "TrainingSupport"
+      ],
+      "default": "Infrastructure"
     }
   }
 }

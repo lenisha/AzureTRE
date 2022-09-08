@@ -26,6 +26,7 @@
       "type": "string",
       "title": "Workspace Overview",
       "description": "Long form description of the workspace, in markdown syntax.",
+      "default": "",
       "updateable": true
     },
     "address_space_size": {

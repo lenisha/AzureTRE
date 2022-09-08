@@ -6,6 +6,13 @@
   "description": "Workspace with unrestricted access to the Internet",
   "required": [],
   "properties": {
+    "overview": {
+      "type": "string",
+      "title": "Workspace Overview",
+      "description": "Long form description of the workspace, in markdown syntax.",
+      "updateable": true,
+      "default": "| | | | |\n|:---|:---|:---|:---\n|[![Big Data Solution](https://scctre.canadacentral.cloudapp.azure.com/azure_databricks.png)](https://adb-6476404885506154.14.azuredatabricks.net/?o=6476404885506154)| [Connect to Azure DataBricks (Spark as a service)](https://adb-6476404885506154.14.azuredatabricks.net/?o=6476404885506154)| [![Central Storage](https://scctre.canadacentral.cloudapp.azure.com/datalake.png)](https://portal.azure.com/#@MngEnv796115.onmicrosoft.com/resource/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre/providers/Microsoft.Storage/storageAccounts/ssctredatalakeshared/storagebrowser)| [Connect to Azure Data Lake Gen2](https://portal.azure.com/#@MngEnv796115.onmicrosoft.com/resource/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre/providers/Microsoft.Storage/storageAccounts/ssctredatalakeshared/storagebrowser) |"
+    },
     "shared_storage_quota": {
       "$id": "#/properties/shared_storage_quota",
       "type": "integer",
