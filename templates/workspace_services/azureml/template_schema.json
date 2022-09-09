@@ -3,7 +3,7 @@
   "$id": "https://github.com/microsoft/AzureTRE/templates/workspace_services/azureml/template_schema.json",
   "type": "object",
   "title": "Azure Machine Learning",
-  "description": "Installs Azure Machine Learning. Please be aware this template opens up additional firewall rules to enable Azure ML to function.",
+  "description": "This will provision Azure Machine Learning for your project as well as start up project onboarding process for you to get started as soon as possible",
   "required": [],
   "properties": {
     "is_exposed_externally": {
@@ -11,7 +11,31 @@
       "type": "boolean",
       "title": "Expose externally",
       "description": "Is the Azure ML workspace accessible from  outside of the workspace network",
-      "default": false
+      "default": true
+    },
+    "display_name": {
+      "type": "string",
+      "title": "Project name (this will be the Azure ML service name as well)",
+      "description": "The name of the workspace service to be displayed to users",
+      "updateable": true
+    },
+    "description": {
+      "type": "string",
+      "title": "Project description",
+      "description": "Description for the project",
+      "updateable": true
+    },
+    "overview": {
+      "type": "string",
+      "title": "Project Overview",
+      "description": "Long form description of the project, in markdown syntax",
+      "updateable": true
+    },
+    "main_contact": {
+      "type": "string",
+      "title": "Project main point of contact email address",
+      "description": "",
+      "updateable": true
     }
   },
   "pipeline": {
