@@ -24,7 +24,7 @@ export const CategorySharedServices: React.FunctionComponent<CategorySharedServi
       setSharedServices(ss);
     }
     getSharedServices();
-  }, [apiCall]);
+  }, [apiCall,props.service_category]);
 
   const updateSharedService = (ss: SharedService) => {
     let ssList = [...sharedServices];
