@@ -20,25 +20,25 @@ export const LeftNav: React.FunctionComponent = () => {
         {
           name: 'Data',
           url: '/shared-services/category/data',
-          key: 'shared-services-category',
+          key: 'shared-services-category-data',
           icon: 'Database'
         },
         {
           name: 'Compute',
           url: '/shared-services/category/compute',
-          key: 'shared-services-category',
+          key: 'shared-services-category-comp',
           icon: 'CloudAdd'
         },
         {
           name: 'Training & Support',
           url: '/shared-services/category/training',
-          key: 'shared-services-category',
+          key: 'shared-services-category-train',
           icon: 'Info'
         },
         {
           name: 'Infrastructure',
           url: '/shared-services/category/infrastructure',
-          key: 'shared-services-category',
+          key: 'shared-services-category-infra',
           icon: 'Toolbox'
         }
       ],
