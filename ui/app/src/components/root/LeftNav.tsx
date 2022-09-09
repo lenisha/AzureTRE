@@ -33,7 +33,13 @@ export const LeftNav: React.FunctionComponent = () => {
           name: 'Training & Support',
           url: '/shared-services/category/training',
           key: 'shared-services-category',
-          icon: 'Help'
+          icon: 'Info'
+        },
+        {
+          name: 'Infrastructure',
+          url: '/shared-services/category/infrastructure',
+          key: 'shared-services-category',
+          icon: 'Toolbox'
         }
       ],
     },

@@ -13,5 +13,5 @@ export enum ApiEndpoint {
     SharedServiceTemplates = 'shared-service-templates',
     Operations = 'operations',
     InvokeAction = 'invoke-action',
-    SharedServicesCategory = 'shared-services-category'
+    SharedServicesCategory = 'shared-services/category'
 }

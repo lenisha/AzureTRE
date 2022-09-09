@@ -1,4 +1,4 @@
-import { MessageBar, MessageBarType, Spinner, SpinnerSize, Stack } from '@fluentui/react';
+import { Spinner, SpinnerSize, Stack } from '@fluentui/react';
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Admin } from '../../App';
@@ -10,23 +10,27 @@ import { LeftNav } from './LeftNav';
 import { LoadingState } from '../../models/loadingState';
 import { SharedServices } from '../shared/SharedServices';
 import { SharedServiceItem } from '../shared/SharedServiceItem';
+import { CategorySharedServices } from '../shared/CategorySharedServices';
 import { SecuredByRole } from '../shared/SecuredByRole';
 import { RoleName, WorkspaceRoleName } from '../../models/roleNames';
+import { APIError } from '../../models/exceptions';
+import { ExceptionLayout } from '../shared/ExceptionLayout';
 
 export const RootLayout: React.FunctionComponent = () => {
   const [workspaces, setWorkspaces] = useState([] as Array<Workspace>);
   const [loadingState, setLoadingState] = useState(LoadingState.Loading);
+  const [apiError, setApiError] = useState({} as APIError);
   const apiCall = useAuthApiCall();
 
   useEffect(() => {
     const getWorkspaces = async () => {
       try {
-        const r = await apiCall(ApiEndpoint.Workspaces, HttpMethod.Get, undefined, undefined, ResultType.JSON, (roles: Array<string>) => {
-          setLoadingState(roles && roles.length > 0 ? LoadingState.Ok : LoadingState.AccessDenied);
-        });
-
+        const r = await apiCall(ApiEndpoint.Workspaces, HttpMethod.Get, undefined, undefined, ResultType.JSON);
+        setLoadingState(LoadingState.Ok);
         r && r.workspaces && setWorkspaces(r.workspaces);
-      } catch {
+      } catch (e:any) {
+        e.userMessage = 'Error retrieving resources';
+        setApiError(e);
         setLoadingState(LoadingState.Error);
       }
 
@@ -72,10 +76,16 @@ export const RootLayout: React.FunctionComponent = () => {
               } />
               <Route path="/admin" element={<Admin />} />
               <Route path="/shared-services/category/data" element={
-                <Routes>
-                  <Route path="/data" element={<SecuredByRole element={<SharedServices readonly={false}/>} allowedRoles={[RoleName.TREAdmin,WorkspaceRoleName.WorkspaceOwner]} errorString={"You must be a TRE Admin to access this area"}/>} />
-                  <Route path=":serviceCategory" element={<SecuredByRole element={<SharedServiceItem readonly={false}/>} allowedRoles={[RoleName.TREAdmin,WorkspaceRoleName.WorkspaceOwner]} errorString={"You must be a TRE Admin to access this area"}/>} />
-                </Routes>
+                 <CategorySharedServices service_category="Data"/>
+              } />
+              <Route path="/shared-services/category/compute" element={
+                 <CategorySharedServices service_category="Compute"/>
+              } />
+              <Route path="/shared-services/category/training" element={
+                 <CategorySharedServices service_category="TrainingSupport"/>
+              } />
+              <Route path="/shared-services/category/infrastructure" element={
+                 <CategorySharedServices service_category="Infrastructure"/>
               } />
               <Route path="/shared-services/*" element={
                 <Routes>
@@ -87,27 +97,9 @@ export const RootLayout: React.FunctionComponent = () => {
           </Stack.Item>
         </Stack>
       );
-    case LoadingState.AccessDenied:
-      return (
-        <MessageBar
-          messageBarType={MessageBarType.warning}
-          isMultiline={true}
-        >
-          <h3>Access Denied</h3>
-          <p>
-            You do not have access to this application. If you feel you should have access, please speak to your TRE Administrator. <br />
-            If you have recently been given access, you may need to clear you browser local storage and refresh.</p>
-        </MessageBar>
-      );
     case LoadingState.Error:
       return (
-        <MessageBar
-          messageBarType={MessageBarType.error}
-          isMultiline={true}
-        >
-          <h3>Error retrieving workspaces</h3>
-          <p>We were unable to fetch the workspace list. Please see browser console for details.</p>
-        </MessageBar>
+        <ExceptionLayout e={apiError} />
       );
     default:
       return (

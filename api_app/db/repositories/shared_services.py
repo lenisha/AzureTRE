@@ -30,7 +30,7 @@ class SharedServiceRepository(ResourceRepository):
 
     @staticmethod
     def category_shared_services_query(service_category: str):
-        return f'SELECT * FROM c WHERE {IS_NOT_DELETED_CLAUSE} AND c.resourceType = "{ResourceType.SharedService}" AND c.service_category = "{service_category}"'
+        return f'SELECT * FROM c WHERE {IS_NOT_DELETED_CLAUSE} AND c.resourceType = "{ResourceType.SharedService}" AND c.properties.service_category = "{service_category}"'
 
     @staticmethod
     def operating_shared_service_with_template_name_query(template_name: str):
