@@ -126,7 +126,8 @@ module "airlock_resources" {
 
   depends_on = [
     azurerm_servicebus_namespace.sb,
-    module.network
+    module.network,
+    azurerm_service_plan.core
   ]
 }
 

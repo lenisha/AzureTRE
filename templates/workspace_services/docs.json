@@ -1,0 +1,594 @@
+{
+  "_rid": "lBAfAO0Lvb0=",
+  "Documents": [
+      {
+          "id": "77c1d127-4c6e-40fc-a516-4819343956b6",
+          "templateName": "tre-shared-service-firewall",
+          "templateVersion": "0.4.2",
+          "properties": {
+              "display_name": "Shared service tre-shared-service-firewall",
+              "description": "Automatically deployed tre-shared-service-firewall",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "shared-service",
+          "deploymentStatus": "deployed",
+          "etag": "0800dc88-0000-0a00-0000-6303128f0000",
+          "resourcePath": "/shared-services/77c1d127-4c6e-40fc-a516-4819343956b6",
+          "resourceVersion": 0,
+          "user": {
+              "id": "d1858208-676e-4a25-b7fe-8c9dbed7959f",
+              "name": "",
+              "email": "",
+              "roles": [
+                  "TREAdmin"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661145709.43357,
+          "history": [],
+          "_rid": "lBAfAO0Lvb0BAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0BAAAAAAAAAA==/",
+          "_etag": "\"08002c89-0000-0a00-0000-630317a30000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661147043
+      },
+      {
+          "id": "a351bf01-6990-41d2-8c8b-9edf16310b2c",
+          "templateName": "tre-shared-service-certs",
+          "templateVersion": "0.1.2",
+          "properties": {
+              "display_name": "Shared service tre-shared-service-certs",
+              "description": "Automatically deployed tre-shared-service-certs",
+              "domain_prefix": "nexus",
+              "cert_name": "nexus-ssl",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "shared-service",
+          "deploymentStatus": "deployed",
+          "etag": "080076bc-0000-0a00-0000-6303bb190000",
+          "resourcePath": "/shared-services/a351bf01-6990-41d2-8c8b-9edf16310b2c",
+          "resourceVersion": 0,
+          "user": {
+              "id": "d1858208-676e-4a25-b7fe-8c9dbed7959f",
+              "name": "",
+              "email": "",
+              "roles": [
+                  "TREAdmin"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661188715.156858,
+          "history": [],
+          "_rid": "lBAfAO0Lvb0CAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0CAAAAAAAAAA==/",
+          "_etag": "\"0800c5bc-0000-0a00-0000-6303c02d0000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661190189
+      },
+      {
+          "id": "f612f519-7772-4e9c-83ea-d5658adb2537",
+          "templateName": "tre-shared-service-sonatype-nexus",
+          "templateVersion": "2.1.4",
+          "properties": {
+              "display_name": "Shared service tre-shared-service-sonatype-nexus",
+              "description": "Automatically deployed tre-shared-service-sonatype-nexus",
+              "ssl_cert_name": "nexus-ssl",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "shared-service",
+          "deploymentStatus": "deployed",
+          "etag": "0800d5bc-0000-0a00-0000-6303c0de0000",
+          "resourcePath": "/shared-services/f612f519-7772-4e9c-83ea-d5658adb2537",
+          "resourceVersion": 0,
+          "user": {
+              "id": "d1858208-676e-4a25-b7fe-8c9dbed7959f",
+              "name": "",
+              "email": "",
+              "roles": [
+                  "TREAdmin"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661190360.784933,
+          "history": [],
+          "_rid": "lBAfAO0Lvb0DAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0DAAAAAAAAAA==/",
+          "_etag": "\"0800f1bc-0000-0a00-0000-6303c2960000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661190806
+      },
+      {
+          "id": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "templateName": "tre-workspace-base",
+          "templateVersion": "0.3.24",
+          "properties": {
+              "aad_redirect_uris": [],
+              "app_service_plan_sku": "P1v3",
+              "enable_airlock": true,
+              "display_name": "scctre-baseworkspace",
+              "description": "Base workspace",
+              "shared_storage_quota": 1,
+              "address_space_size": "medium",
+              "client_id": "b0c29841-bbcd-4da1-809f-26313436209e",
+              "client_secret": "REDACTED",
+              "address_space": "10.1.4.0/22",
+              "register_aad_application": false,
+              "workspace_owner_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "sp_id": "40e21789-3c01-4363-9c8f-cac45b77afe4",
+              "scope_id": "api://b0c29841-bbcd-4da1-809f-26313436209e",
+              "app_role_id_workspace_airlock_manager": "b5cc0e71-dc9d-4bbb-af2a-ff030ecc33d7",
+              "app_role_id_workspace_researcher": "716a5957-cb7a-485b-9327-25b654e1d88a",
+              "app_role_id_workspace_owner": "d4b7b7c0-bd16-4210-b19e-91afa05adb06",
+              "tre_id": "scctre",
+              "azure_location": "canadacentral",
+              "workspace_id": "579a"
+          },
+          "isEnabled": true,
+          "resourceType": "workspace",
+          "deploymentStatus": "deployed",
+          "etag": "08007dc3-0000-0a00-0000-6303d60c0000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "resourceVersion": 0,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "TREAdmin"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661195774.206611,
+          "history": [],
+          "workspaceURL": "",
+          "_rid": "lBAfAO0Lvb0EAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0EAAAAAAAAAA==/",
+          "_etag": "\"08009ec3-0000-0a00-0000-6303d7fa0000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661196282
+      },
+      {
+          "id": "c62e2bb1-c60d-4c78-a53b-d3b22994614c",
+          "templateName": "tre-service-azureml",
+          "templateVersion": "0.4.3",
+          "properties": {
+              "display_name": "amltre",
+              "description": "AzureML service",
+              "tre_id": "scctre",
+              "azureml_acr_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.ContainerRegistry/registries/acrsvc614c",
+              "azureml_storage_account_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.Storage/storageAccounts/stgsvc614c",
+              "azureml_workspace_name": "ml-scctre-ws-579a-svc-614c",
+              "connection_uri":"https://ml.azure.com/?wsid=/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.MachineLearningServices/workspaces/ml-scctre-ws-579a-svc-614c\&tid=4460d6c7-3cdd-4d85-bda4-87c85c98af04"
+          },
+          "isEnabled": false,
+          "resourceType": "workspace-service",
+          "deploymentStatus": "deleted",
+          "etag": "09006736-0000-0a00-0000-6304e9c20000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/c62e2bb1-c60d-4c78-a53b-d3b22994614c",
+          "resourceVersion": 3,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661266150.151024,
+          "history": [
+              {
+                  "properties": {
+                      "display_name": "amltre",
+                      "description": "AzureML service",
+                      "tre_id": "scctre"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 0,
+                  "updatedWhen": 1661204675.578832,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              },
+              {
+                  "properties": {
+                      "display_name": "amltre",
+                      "description": "AzureML service",
+                      "tre_id": "scctre"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 1,
+                  "updatedWhen": 1661207181.458238,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              },
+              {
+                  "properties": {
+                      "display_name": "amltre",
+                      "description": "AzureML service",
+                      "tre_id": "scctre",
+                      "azureml_acr_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.ContainerRegistry/registries/acrsvc614c",
+                      "azureml_storage_account_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.Storage/storageAccounts/stgsvc614c",
+                      "azureml_workspace_name": "ml-scctre-ws-579a-svc-614c",
+                      "connection_uri":"https://ml.azure.com/?wsid=/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.MachineLearningServices/workspaces/ml-scctre-ws-579a-svc-614c\&tid=4460d6c7-3cdd-4d85-bda4-87c85c98af04"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 2,
+                  "updatedWhen": 1661207853.538492,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              }
+          ],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "_rid": "lBAfAO0Lvb0GAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0GAAAAAAAAAA==/",
+          "_etag": "\"09007a36-0000-0a00-0000-6304eac30000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661266627
+      },
+      {
+          "id": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "templateName": "tre-service-azureml",
+          "templateVersion": "0.4.3",
+          "properties": {
+              "display_name": "amltre",
+              "description": "AML TRE",
+              "tre_id": "scctre",
+              "azureml_acr_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.ContainerRegistry/registries/acrsvc7b3c",
+              "azureml_storage_account_id": "/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.Storage/storageAccounts/stgsvc7b3c",
+              "azureml_workspace_name": "ml-scctre-ws-579a-svc-7b3c",
+              "connection_uri":"https://ml.azure.com/?wsid=/subscriptions/f9b97038-ed78-4a26-a1a7-51e81e75d867/resourceGroups/rg-scctre-ws-579a/providers/Microsoft.MachineLearningServices/workspaces/ml-scctre-ws-579a-svc-7b3c\&tid=4460d6c7-3cdd-4d85-bda4-87c85c98af04"
+          },
+          "isEnabled": true,
+          "resourceType": "workspace-service",
+          "deploymentStatus": "deployed",
+          "etag": "09002239-0000-0a00-0000-6304ed180000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "resourceVersion": 0,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661267208.270102,
+          "history": [],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "_rid": "lBAfAO0Lvb0HAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0HAAAAAAAAAA==/",
+          "_etag": "\"09007f3a-0000-0a00-0000-6304ee670000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661267559
+      },
+      {
+          "id": "4e29f9b4-4b5d-4580-8af3-127a0c67ad60",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D2_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "amltrecompute",
+              "description": "AML Compute",
+              "tre_id": "scctre"
+          },
+          "isEnabled": false,
+          "resourceType": "user-resource",
+          "deploymentStatus": "deleted",
+          "etag": "0900d23a-0000-0a00-0000-6304f2d30000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/4e29f9b4-4b5d-4580-8af3-127a0c67ad60",
+          "resourceVersion": 1,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661268641.592363,
+          "history": [
+              {
+                  "properties": {
+                      "vm_size": "Standard_D2_v3",
+                      "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+                      "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "display_name": "amltrecompute",
+                      "description": "AML Compute",
+                      "tre_id": "scctre"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 0,
+                  "updatedWhen": 1661267756.962835,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              }
+          ],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0IAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0IAAAAAAAAAA==/",
+          "_etag": "\"0900d63a-0000-0a00-0000-6304f2e90000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661268713
+      },
+      {
+          "id": "0a92cffa-fa5d-4952-8e4e-f04173c5092f",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D2_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "amltrecomp",
+              "description": "AML Compute",
+              "tre_id": "scctre"
+          },
+          "isEnabled": false,
+          "resourceType": "user-resource",
+          "deploymentStatus": "deleting",
+          "etag": "0900a346-0000-0a00-0000-630521140000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/0a92cffa-fa5d-4952-8e4e-f04173c5092f",
+          "resourceVersion": 1,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661276664.279242,
+          "history": [
+              {
+                  "properties": {
+                      "vm_size": "Standard_D2_v3",
+                      "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+                      "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "display_name": "amltrecomp",
+                      "description": "AML Compute",
+                      "tre_id": "scctre"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 0,
+                  "updatedWhen": 1661269336.700506,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              }
+          ],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0JAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0JAAAAAAAAAA==/",
+          "_etag": "\"0900a646-0000-0a00-0000-6305212a0000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661280554
+      },
+      {
+          "id": "07a62443-5910-4f97-9d9f-9fcd5ed22315",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D4_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "amltrepubcomp",
+              "description": "AML Compute PublicIP",
+              "tre_id": "scctre"
+          },
+          "isEnabled": false,
+          "resourceType": "user-resource",
+          "deploymentStatus": "deleting_failed",
+          "etag": "090075bb-0000-0a00-0000-63064a450000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/07a62443-5910-4f97-9d9f-9fcd5ed22315",
+          "resourceVersion": 1,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661283842.032478,
+          "history": [
+              {
+                  "properties": {
+                      "vm_size": "Standard_D4_v3",
+                      "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+                      "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "display_name": "amltrepubcomp",
+                      "description": "AML Compute PublicIP",
+                      "tre_id": "scctre"
+                  },
+                  "isEnabled": true,
+                  "resourceVersion": 0,
+                  "updatedWhen": 1661279984.312092,
+                  "user": {
+                      "id": "633f2146-f81a-4c97-930a-942008ed4871",
+                      "name": "Elena Neroslavskaya",
+                      "email": "",
+                      "roles": [
+                          "WorkspaceOwner"
+                      ],
+                      "roleAssignments": []
+                  }
+              }
+          ],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0KAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0KAAAAAAAAAA==/",
+          "_etag": "\"090079bb-0000-0a00-0000-63064a5a0000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661356634
+      },
+      {
+          "id": "c0319e4c-6258-44e2-aef1-9f807539b1c2",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D2_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "amlpubcomp2",
+              "description": "AML Compute Pub",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "user-resource",
+          "deploymentStatus": "deploying",
+          "etag": "09007ebb-0000-0a00-0000-63064a9b0000",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/c0319e4c-6258-44e2-aef1-9f807539b1c2",
+          "resourceVersion": 0,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661356699.482637,
+          "history": [],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0LAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0LAAAAAAAAAA==/",
+          "_etag": "\"090081bb-0000-0a00-0000-63064aa60000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661356710
+      },
+      {
+          "id": "bc7dff82-4d62-45a8-a4da-4726be137b43",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D2_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "amlpubtrecomp3",
+              "description": "Compute",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "user-resource",
+          "deploymentStatus": null,
+          "etag": "",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/bc7dff82-4d62-45a8-a4da-4726be137b43",
+          "resourceVersion": 0,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661361942.632022,
+          "history": [],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0MAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0MAAAAAAAAAA==/",
+          "_etag": "\"090025c0-0000-0a00-0000-63065f160000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661361942
+      },
+      {
+          "id": "2f8d9949-faf1-4acd-a71d-a1734fe1bb45",
+          "templateName": "tre-user-resource-aml-compute-instance",
+          "templateVersion": "0.3.1",
+          "properties": {
+              "vm_size": "Standard_D2_v3",
+              "auth_tenant_id": "4460d6c7-3cdd-4d85-bda4-87c85c98af04",
+              "user_object_id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "display_name": "comp4",
+              "description": "Compute4",
+              "tre_id": "scctre"
+          },
+          "isEnabled": true,
+          "resourceType": "user-resource",
+          "deploymentStatus": null,
+          "etag": "",
+          "resourcePath": "/workspaces/d584ef52-6c4d-4018-a9d6-6afade2c579a/workspace-services/84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c/user-resources/2f8d9949-faf1-4acd-a71d-a1734fe1bb45",
+          "resourceVersion": 0,
+          "user": {
+              "id": "633f2146-f81a-4c97-930a-942008ed4871",
+              "name": "Elena Neroslavskaya",
+              "email": "",
+              "roles": [
+                  "WorkspaceOwner"
+              ],
+              "roleAssignments": []
+          },
+          "updatedWhen": 1661363619.353051,
+          "history": [],
+          "workspaceId": "d584ef52-6c4d-4018-a9d6-6afade2c579a",
+          "ownerId": "633f2146-f81a-4c97-930a-942008ed4871",
+          "parentWorkspaceServiceId": "84b4e0aa-5b7e-4794-9b04-21e1e6e77b3c",
+          "azureStatus": {},
+          "_rid": "lBAfAO0Lvb0NAAAAAAAAAA==",
+          "_self": "dbs/lBAfAA==/colls/lBAfAO0Lvb0=/docs/lBAfAO0Lvb0NAAAAAAAAAA==/",
+          "_etag": "\"09008ac0-0000-0a00-0000-630665a30000\"",
+          "_attachments": "attachments/",
+          "_ts": 1661363619
+      }
+  ],
+  "_count": 12
+}

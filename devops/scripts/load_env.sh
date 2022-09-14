@@ -2,7 +2,7 @@
 set -o errexit
 set -o pipefail
 set -o nounset
-# set -o xtrace
+set -o xtrace
 
 if [ ! -f "$1" ]; then
   if [ -z "${USE_ENV_VARS_NOT_FILES:-}" ]; then
