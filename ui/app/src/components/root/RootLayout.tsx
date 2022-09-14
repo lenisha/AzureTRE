@@ -75,17 +75,29 @@ export const RootLayout: React.FunctionComponent = () => {
                   removeWorkspace={(w: Workspace) => removeWorkspace(w)} />
               } />
               <Route path="/admin" element={<Admin />} />
-              <Route path="/shared-services/category/data" element={
-                 <CategorySharedServices service_category="Data"/>
+              <Route path="/shared-services/category/data/*" element={
+                <Routes>
+                 <Route path="/" element={<CategorySharedServices service_category="Data"/>}/>
+                 <Route path=":sharedServiceId" element={<SharedServiceItem readonly={false}/>} />
+               </Routes>
               } />
-              <Route path="/shared-services/category/compute" element={
-                 <CategorySharedServices service_category="Compute"/>
+              <Route path="/shared-services/category/compute/*" element={
+                 <Routes>
+                 <Route path="/" element={<CategorySharedServices service_category="Compute"/>}/>
+                 <Route path=":sharedServiceId" element={<SharedServiceItem readonly={false}/>} />
+                 </Routes>
               } />
-              <Route path="/shared-services/category/training" element={
-                 <CategorySharedServices service_category="TrainingSupport"/>
+              <Route path="/shared-services/category/training/*" element={
+                <Routes>
+                 <Route path="/" element={<CategorySharedServices service_category="TrainingSupport"/>}/>
+                 <Route path=":sharedServiceId" element={<SharedServiceItem readonly={false}/>} />
+               </Routes>
               } />
-              <Route path="/shared-services/category/infrastructure" element={
-                 <CategorySharedServices service_category="Infrastructure"/>
+              <Route path="/shared-services/category/infrastructure/*" element={
+                <Routes>
+                     <Route path="/" element={<CategorySharedServices service_category="Infrastructure"/>}/>
+                     <Route path=":sharedServiceId" element={<SharedServiceItem readonly={false}/>} />
+                 </Routes>
               } />
               <Route path="/shared-services/*" element={
                 <Routes>
