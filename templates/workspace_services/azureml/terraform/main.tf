@@ -28,34 +28,22 @@ data "azurerm_key_vault" "ws" {
   resource_group_name = data.azurerm_resource_group.ws.name
 }
 
-# Using AzAPI due to https://github.com/hashicorp/terraform-provider-azurerm/issues/16177
-resource "azapi_resource" "aml_workspace" {
-  name                      = local.workspace_name
-  parent_id                 = data.azurerm_resource_group.ws.id
-  type                      = "Microsoft.MachineLearningServices/workspaces@2022-05-01"
-  schema_validation_enabled = false
-  location                  = data.azurerm_resource_group.ws.location
+resource "azurerm_machine_learning_workspace" "aml_workspace" {
+  name                          = local.workspace_name
+  resource_group_name           = data.azurerm_resource_group.ws.name
+  location                      = data.azurerm_resource_group.ws.location
+  application_insights_id       = azurerm_application_insights.ai.id
+  container_registry_id         = azurerm_container_registry.acr.id
+  friendly_name                 = var.display_name
+  description                   = var.description
+  high_business_impact          = true
+  key_vault_id                  = data.azurerm_key_vault.ws.id
+  public_network_access_enabled = var.is_exposed_externally ? true : false
+  storage_account_id            = azurerm_storage_account.aml.id
 
-  body = jsonencode({
-    properties = {
-      allowRecoverSoftDeletedWorkspace = "True"
-      applicationInsights              = azurerm_application_insights.ai.id
-      containerRegistry                = azurerm_container_registry.acr.id
-      friendlyName                     = var.display_name
-      description                      = var.description
-      hbiWorkspace                     = true
-      keyVault                         = data.azurerm_key_vault.ws.id
-      publicNetworkAccess              = var.is_exposed_externally ? "Enabled" : "Disabled"
-      storageAccount                   = azurerm_storage_account.aml.id
-      v1LegacyMode                     = false
-    }
-    identity = {
-      type = "SystemAssigned"
-    }
-  })
-
-  response_export_values = ["*"]
-
+  identity {
+    type = "SystemAssigned"
+  }
 }
 
 data "azurerm_private_dns_zone" "azureml" {
@@ -89,7 +77,7 @@ resource "azurerm_private_endpoint" "mlpe" {
 
   private_service_connection {
     name                           = "mlpesc-${local.service_resource_name_suffix}"
-    private_connection_resource_id = azapi_resource.aml_workspace.id
+    private_connection_resource_id = azurerm_machine_learning_workspace.aml_workspace.id
     is_manual_connection           = false
     subresource_names              = ["amlworkspace"]
   }

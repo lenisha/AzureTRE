@@ -1,22 +1,19 @@
 terraform {
-  required_providers {
+   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.5.0"
+      version = "=3.32.0"
     }
-    azapi = {
-      source  = "Azure/azapi"
-      version = "=0.3.0"
-    }
+
     external = {
       source  = "hashicorp/external"
       version = "=2.2.2"
     }
+
     null = {
       source  = "hashicorp/null"
       version = "=3.1.1"
     }
-
   }
 
   backend "azurerm" {}
@@ -39,7 +36,6 @@ provider "azurerm" {
   }
 }
 
-provider "azapi" {
-}
+
 
 data "azurerm_client_config" "current" {}
